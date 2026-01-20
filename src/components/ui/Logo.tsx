@@ -1,18 +1,23 @@
 'use client';
 
-import { useTheme } from '@/components/theme';
+import { useState, useEffect } from 'react';
 
 interface LogoProps {
     size?: number;
     className?: string;
 }
 
+// Safe Logo that works both during SSR and client-side
 export function Logo({ size = 32, className = '' }: LogoProps) {
-    const { themeConfig } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    // Use theme accent color for the logo, fallback to default
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Always use static colors that work in all themes
     const bgColor = 'currentColor';
-    const fgColor = themeConfig?.id === 'cosmos' ? '#111111' : 'var(--background)';
+    const fgColor = 'var(--background)';
 
     return (
         <svg
@@ -22,6 +27,7 @@ export function Logo({ size = 32, className = '' }: LogoProps) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
+            style={{ opacity: mounted ? 1 : 0.99 }} // Tiny change to trigger re-render after mount
         >
             <g clipPath="url(#clip0_logo)">
                 <path
@@ -46,7 +52,7 @@ export function Logo({ size = 32, className = '' }: LogoProps) {
     );
 }
 
-// Static version for use before theme is loaded (prevents hydration issues)
+// Static version for use in skeleton/loading states
 export function LogoStatic({ size = 32, className = '' }: LogoProps) {
     return (
         <svg
