@@ -230,6 +230,7 @@ export function getCurrentSeason(isSouthernHemisphere: boolean = false): ThemeId
       winter: 'summer',
       spring: 'autumn',
       autumn: 'spring',
+      cosmos: 'cosmos', // cosmos doesn't change with hemisphere
     };
     season = flipMap[season];
   }
