@@ -206,8 +206,19 @@ export function ThemeProvider({
 export function useTheme(): ThemeContextValue {
     const context = useContext(ThemeContext);
 
+    // Return safe defaults during SSR or before hydration
     if (!context) {
-        throw new Error('useTheme must be used within a ThemeProvider');
+        const defaultTheme = 'summer' as ThemeId;
+        return {
+            theme: defaultTheme,
+            weather: 'clear' as WeatherType,
+            isDark: false,
+            setTheme: () => { },
+            setWeather: () => { },
+            toggleDarkMode: () => { },
+            themeConfig: themes[defaultTheme],
+            availableThemes: themeOrder,
+        };
     }
 
     return context;
