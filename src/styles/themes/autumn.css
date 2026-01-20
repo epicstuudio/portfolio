@@ -1,0 +1,51 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   AUTUMN THEME
+   Rich, cozy, earthy vibes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="autumn"] {
+    /* Theme Identity Colors */
+    --theme-accent: var(--color-orange-600);
+    --theme-accent-hover: var(--color-red-600);
+    --theme-accent-soft: var(--color-amber-700);
+    --theme-accent-muted: var(--color-stone-200);
+
+    /* Override backgrounds for warm autumn feel */
+    --bg-primary: var(--color-stone-100);
+    --bg-secondary: var(--color-stone-200);
+    --bg-tertiary: var(--color-stone-100);
+    --bg-inverse: var(--color-stone-900);
+    --bg-accent: var(--theme-accent);
+    --bg-accent-soft: var(--theme-accent-muted);
+
+    /* Text - slightly warmer */
+    --text-primary: var(--color-stone-900);
+    --text-secondary: var(--color-stone-700);
+
+    /* Charts */
+    --chart-1: var(--color-orange-600);
+    --chart-2: var(--color-red-700);
+    --chart-3: var(--color-amber-700);
+    --chart-4: var(--color-orange-700);
+    --chart-5: var(--color-amber-800);
+
+    /* Weather effect colors */
+    --weather-particle: var(--color-orange-600);
+    --weather-glow: var(--color-amber-700);
+}
+
+[data-theme="autumn"].dark {
+    --theme-accent: var(--color-orange-500);
+    --theme-accent-hover: var(--color-red-600);
+    --theme-accent-soft: var(--color-orange-700);
+    --theme-accent-muted: var(--color-stone-800);
+
+    /* Dark autumn backgrounds */
+    --bg-primary: var(--color-stone-900);
+    --bg-secondary: var(--color-stone-800);
+    --bg-tertiary: var(--color-stone-700);
+
+    /* Text */
+    --text-primary: var(--color-stone-100);
+    --text-secondary: var(--color-stone-200);
+}

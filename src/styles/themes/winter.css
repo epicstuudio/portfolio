@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   WINTER THEME
+   Clean, minimal, icy vibes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="winter"] {
+    /* Theme Identity Colors */
+    --theme-accent: var(--color-sky-500);
+    --theme-accent-hover: var(--color-blue-500);
+    --theme-accent-soft: var(--color-sky-300);
+    --theme-accent-muted: var(--color-sky-200);
+
+    /* Override backgrounds for winter feel */
+    --bg-primary: var(--color-slate-50);
+    --bg-secondary: var(--color-slate-100);
+    --bg-tertiary: var(--color-slate-200);
+    --bg-accent: var(--theme-accent);
+    --bg-accent-soft: var(--theme-accent-muted);
+
+    /* Charts */
+    --chart-1: var(--color-sky-500);
+    --chart-2: var(--color-blue-500);
+    --chart-3: var(--color-sky-300);
+    --chart-4: var(--color-blue-400);
+    --chart-5: var(--color-sky-400);
+
+    /* Weather effect colors */
+    --weather-particle: var(--color-white);
+    --weather-glow: var(--color-sky-200);
+}
+
+[data-theme="winter"].dark {
+    --theme-accent: var(--color-sky-400);
+    --theme-accent-hover: var(--color-blue-400);
+    --theme-accent-soft: var(--color-sky-600);
+    --theme-accent-muted: var(--color-sky-700);
+
+    /* Dark winter backgrounds */
+    --bg-primary: var(--color-gray-950);
+    --bg-secondary: var(--color-gray-900);
+    --bg-tertiary: var(--color-gray-800);
+}

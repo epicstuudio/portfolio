@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPRING THEME
+   Fresh, growth-oriented, vibrant vibes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="spring"] {
+    /* Theme Identity Colors */
+    --theme-accent: var(--color-emerald-500);
+    --theme-accent-hover: var(--color-green-500);
+    --theme-accent-soft: var(--color-emerald-300);
+    --theme-accent-muted: var(--color-pink-200);
+
+    /* Override backgrounds */
+    --bg-primary: var(--color-white);
+    --bg-secondary: var(--color-gray-50);
+    --bg-tertiary: var(--color-gray-100);
+    --bg-accent: var(--theme-accent);
+    --bg-accent-soft: var(--theme-accent-muted);
+
+    /* Charts */
+    --chart-1: var(--color-emerald-500);
+    --chart-2: var(--color-green-500);
+    --chart-3: var(--color-pink-400);
+    --chart-4: var(--color-emerald-400);
+    --chart-5: var(--color-rose-400);
+
+    /* Weather effect colors */
+    --weather-particle: var(--color-pink-300);
+    --weather-glow: var(--color-emerald-300);
+}
+
+[data-theme="spring"].dark {
+    --theme-accent: var(--color-emerald-400);
+    --theme-accent-hover: var(--color-green-400);
+    --theme-accent-soft: var(--color-emerald-600);
+    --theme-accent-muted: var(--color-pink-800);
+
+    /* Dark spring backgrounds */
+    --bg-primary: var(--color-gray-950);
+    --bg-secondary: var(--color-gray-900);
+    --bg-tertiary: var(--color-gray-800);
+}

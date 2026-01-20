@@ -1,0 +1,103 @@
+/**
+ * COSMOS THEME
+ * Deep space aesthetics with cosmic purples, stellar blues, and infinite depth
+ * Weather: Stars (twinkling star particles)
+ */
+
+[data-theme="cosmos"] {
+    /* ═══════════════════════════════════════════════════════════════════════════════
+   * SEMANTIC TOKENS - Semantic overrides for Cosmos theme
+   * ═══════════════════════════════════════════════════════════════════════════════ */
+
+    /* Theme accent - Deep cosmic purple/blue */
+    --theme-accent: #8b5cf6;
+    --theme-accent-foreground: #ffffff;
+    --theme-accent-hover: #7c3aed;
+
+    /* Primary colors - Violet/Purple */
+    --primary: #8b5cf6;
+    --primary-foreground: #ffffff;
+
+    /* Secondary - Deep space navy */
+    --secondary: #1e1b4b;
+    --secondary-foreground: #e0e7ff;
+
+    /* Accent - Nebula pink */
+    --accent: #312e81;
+    --accent-foreground: #c4b5fd;
+
+    /* Muted - Cosmic gray */
+    --muted: #1e1b4b;
+    --muted-foreground: #a5b4fc;
+
+    /* Backgrounds - Deep space gradients */
+    --bg-primary: #0c0a1d;
+    --bg-secondary: #130f2a;
+    --bg-tertiary: #1a1635;
+    --background: #0c0a1d;
+    --card: #130f2a;
+    --popover: #1a1635;
+
+    /* Text - Starlight */
+    --text-primary: #f1f5f9;
+    --text-secondary: #c4b5fd;
+    --text-muted: #a5b4fc;
+    --foreground: #f1f5f9;
+    --card-foreground: #f1f5f9;
+    --popover-foreground: #e0e7ff;
+
+    /* Borders - Nebula edges */
+    --border: #312e81;
+    --border-subtle: #1e1b4b;
+    --input: #312e81;
+    --ring: #8b5cf6;
+
+    /* Chart colors - Cosmic palette */
+    --chart-1: #8b5cf6;
+    --chart-2: #a855f7;
+    --chart-3: #6366f1;
+    --chart-4: #ec4899;
+    --chart-5: #06b6d4;
+
+    /* Weather effect colors - Stars */
+    --weather-particle-1: #ffffff;
+    --weather-particle-2: #c4b5fd;
+    --weather-particle-3: #a5b4fc;
+}
+
+/* Light mode adjustments for Cosmos (still keeping it dark-ish for space feel) */
+[data-theme="cosmos"]:not(.dark) {
+    --bg-primary: #1e1b4b;
+    --bg-secondary: #312e81;
+    --bg-tertiary: #3730a3;
+    --background: #1e1b4b;
+    --card: #312e81;
+    --popover: #3730a3;
+
+    --text-primary: #ffffff;
+    --text-secondary: #e0e7ff;
+    --text-muted: #c4b5fd;
+    --foreground: #ffffff;
+    --card-foreground: #ffffff;
+
+    --border: #4c1d95;
+    --border-subtle: #3730a3;
+}
+
+/* Dark mode for Cosmos - Even deeper space */
+[data-theme="cosmos"].dark {
+    --bg-primary: #030014;
+    --bg-secondary: #0a0520;
+    --bg-tertiary: #100830;
+    --background: #030014;
+    --card: #0a0520;
+    --popover: #100830;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #e0e7ff;
+    --text-muted: #a5b4fc;
+    --foreground: #f8fafc;
+
+    --border: #1e1b4b;
+    --border-subtle: #130f2a;
+}

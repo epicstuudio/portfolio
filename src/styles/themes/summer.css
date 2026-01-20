@@ -1,0 +1,34 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUMMER THEME
+   Warm, energetic, golden vibes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="summer"] {
+    /* Theme Identity Colors */
+    --theme-accent: var(--color-amber-500);
+    --theme-accent-hover: var(--color-orange-500);
+    --theme-accent-soft: var(--color-amber-300);
+    --theme-accent-muted: var(--color-yellow-200);
+
+    /* Theme-specific backgrounds */
+    --bg-accent: var(--theme-accent);
+    --bg-accent-soft: var(--theme-accent-muted);
+
+    /* Charts */
+    --chart-1: var(--color-amber-500);
+    --chart-2: var(--color-orange-500);
+    --chart-3: var(--color-yellow-300);
+    --chart-4: var(--color-amber-300);
+    --chart-5: var(--color-orange-400);
+
+    /* Weather effect colors */
+    --weather-particle: var(--color-amber-300);
+    --weather-glow: var(--color-amber-400);
+}
+
+[data-theme="summer"].dark {
+    --theme-accent: var(--color-amber-400);
+    --theme-accent-hover: var(--color-orange-400);
+    --theme-accent-soft: var(--color-amber-600);
+    --theme-accent-muted: var(--color-amber-700);
+}
