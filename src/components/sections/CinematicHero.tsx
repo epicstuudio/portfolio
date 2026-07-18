@@ -128,7 +128,7 @@ export function CinematicHero() {
       <div className="hero-right h-anim h-fade !hidden md:!flex" style={{ animationDelay: '0.6s' }}>
         <p>
           I partner with ambitious teams to turn complex ideas into elegant, shipped products. 
-          Currently pushing boundaries at Epic Studio.
+          Currently pushing boundaries at Tradeling.
         </p>
       </div>
       
@@ -160,7 +160,7 @@ function HeroStage({ isFinal }: { isFinal: boolean }) {
             </p>
             <p className="text-[0.9rem] text-[rgba(236,233,226,0.78)] leading-relaxed h-anim h-fade" style={{ animationDelay: '0.6s' }}>
               I partner with ambitious teams to turn complex ideas into elegant, shipped products. 
-              Currently pushing boundaries at Epic Studio.
+              Currently pushing boundaries at Tradeling.
             </p>
           </div>
         )}
