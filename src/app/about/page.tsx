@@ -1,18 +1,28 @@
 'use client';
 
 import { Header } from '@/components/layout';
-import Link from 'next/link';
+import { Footer } from '@/components/layout/Footer';
+import '@/components/sections/hero.css';
+import '@/components/sections/capabilities.css';
+import { useEffect, useState } from 'react';
 
 export default function AboutPage() {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-background text-foreground noise-bg">
             <Header />
 
             <main className="pt-[200px]">
                 {/* Hero */}
-                <section className="max-w-[1280px] mx-auto px-8 pb-24">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl">
-                        I craft products that strike a perfect balance between user delight and business success.
+                <section className="max-w-[1280px] mx-auto px-8 pb-32">
+                    <h1 className="text-5xl md:text-[5.5rem] font-medium tracking-[-0.02em] text-foreground max-w-5xl leading-[1]">
+                        I build <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(236,233,226,0.6)' }}>digital</span> experiences
+                        <br />
+                        where <span className="italic pr-3 font-normal" style={{ fontFamily: 'var(--font-serif), serif' }}>engineering</span> logic
+                        <br />
+                        meets <span className="italic pr-3 font-normal" style={{ fontFamily: 'var(--font-serif), serif' }}>human</span> empathy.
                     </h1>
                 </section>
 
@@ -27,140 +37,133 @@ export default function AboutPage() {
                         </div>
 
                         {/* Bio */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 text-lg">
                             <p className="text-muted-foreground leading-relaxed">
-                                My name is Ali and I&apos;m a product designer from
-                                Pakistan based in Dubai, UAE. I&apos;m a Product Designer in
-                                Tradeling, an Amazon-backed B2B
-                                Marketplace. My work revolves around crafting
-                                elegant, functional solutions that deeply
-                                resonate with users and deliver results.
+                                My journey into design wasn&apos;t conventional—it started in engineering. Back in 2016, I was writing frontend code at Shift Enterprises, but I quickly realized my true obsession wasn&apos;t just building interfaces; it was designing the underlying logic of how people interact with them. That realization pushed me to pivot entirely into UI design.
                             </p>
 
                             <p className="text-muted-foreground leading-relaxed">
-                                In 2016, I stepped into the design space as a
-                                Product Designer at Datalink Labs, a growing
-                                startup in Pakistan. During my time at
-                                startups I focused on designing products, websites,
-                                managing design systems, and branding. I enjoy
-                                delivering solutions for businesses in the healthcare
-                                and fitness industry.
+                                By 2018, armed with a Computer Science degree, I joined Datalink as a UX/UI Designer. Having an engineering background gave me a unique lens: I understood the technical constraints, which allowed me to push the boundaries of what was possible across complex mobile apps and expansive web platforms.
+                            </p>
+
+                            <p className="text-muted-foreground leading-relaxed">
+                                In 2019, I took a leap and relocated to Dubai to join Life Smile, a fast-paced e-commerce startup. As a Product Designer, I had the autonomy to shape their digital ecosystem from the ground up. I designed end-to-end experiences—from consumer-facing apps to internal dashboards and scalable design systems—ultimately helping them elevate their mission of delivering premium cookware to a global audience.
+                            </p>
+
+                            <p className="text-muted-foreground leading-relaxed">
+                                Today, I&apos;m based in Dubai, currently pushing boundaries as a Product Designer at Tradeling. My focus remains the same: turning complex, ambitious ideas into elegant, shipped products.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Experience Intro */}
-                <section className="max-w-[1280px] mx-auto px-8 pb-24">
-                    <p className="text-2xl md:text-3xl leading-relaxed max-w-4xl">
-                        My diverse professional experience spans across varied
-                        industries, from pioneering e-commerce interfaces to
-                        innovative applications in health and fitness and more. In
-                        this dynamic journey, not only have I crafted user-centric
-                        designs, but also pioneered products that drive growth
-                        and customer engagement across domains.
-                    </p>
-                </section>
-
                 {/* Companies */}
-                <section className="max-w-[1280px] mx-auto px-8 pb-24">
-                    <p className="text-sm uppercase tracking-wider text-muted-foreground mb-12">
-                        Companies
-                    </p>
+                <section className="cap-section py-24 relative overflow-hidden mt-12">
+                    {/* TOP BAND */}
+                    <div className="section-band top">
+                        <div className="band-col hidden sm:flex" suppressHydrationWarning>DUBAI | {mounted ? new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit' }) : '...'}</div>
+                        <div className="band-col center">
+                            <div className="dot"></div>
+                            COMPANIES
+                        </div>
+                        <div className="band-col right hidden sm:flex">PORTFOLIO '24</div>
+                    </div>
 
-                    <div className="space-y-12">
+                    {/* BOTTOM BAND */}
+                    <div className="section-band bottom">
+                        <div className="band-col hidden sm:flex" suppressHydrationWarning>DUBAI | {mounted ? new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit' }) : '...'}</div>
+                        <div className="band-col center"></div>
+                        <div className="band-col right hidden sm:flex">PORTFOLIO '24</div>
+                    </div>
+
+                    {/* RULER SCALES */}
+                    <div className="ruler-left hidden md:block" aria-hidden="true" style={{ top: '50px', bottom: '50px' }}>
+                        {Array.from({ length: 30 }, (_, i) => (i + 1) * 50).map((val) => (
+                            <div key={val} className="ruler-tick" style={{ top: val }}>
+                                <span>{val}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="ruler-right hidden md:block" aria-hidden="true" style={{ top: '50px', bottom: '50px' }}></div>
+
+                    <div className="w-full sm:w-auto sm:mx-[90px] relative z-10 mt-16 pt-8 border-t border-border">
+                        <div className="flex flex-col">
                         {/* Tradeling */}
-                        <div className="grid md:grid-cols-[200px_1fr] gap-8 pb-12 border-b border-border">
-                            <h3 className="text-2xl font-semibold">Tradeling</h3>
-                            <div>
-                                <p className="font-medium mb-1">Product Designer</p>
-                                <p className="text-sm text-muted-foreground mb-4">01/2025 – Present</p>
-                                <p className="text-muted-foreground">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 py-8 px-5 sm:px-6 border-b border-border hover:bg-white/[0.025] hover:pl-8 transition-all duration-300">
+                            <div className="md:w-[240px] shrink-0">
+                                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-none mb-3" style={{ fontFamily: 'var(--font-serif), serif', fontStyle: 'italic', fontWeight: 400 }}>Tradeling</h3>
+                                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] " style={{ color: 'var(--redline)' }}>01/2025 – Present</p>
+                            </div>
+                            <div className="flex-1 mt-1 md:mt-0">
+                                <p className="text-[1.3rem] font-medium mb-2 text-foreground">Product Designer</p>
+                                <p className="text-muted-foreground text-[1.1rem] leading-[1.65]">
                                     Worked on Mobile, Web, Admin and Design Systems
                                 </p>
                             </div>
                         </div>
 
                         {/* Voltquant */}
-                        <div className="grid md:grid-cols-[200px_1fr] gap-8 pb-12 border-b border-border">
-                            <h3 className="text-2xl font-semibold">Voltquant</h3>
-                            <div>
-                                <p className="font-medium mb-1">Product Designer</p>
-                                <p className="text-sm text-muted-foreground mb-4">11/2023 – 12/2024</p>
-                                <p className="text-muted-foreground">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 py-8 px-5 sm:px-6 border-b border-border hover:bg-white/[0.025] hover:pl-8 transition-all duration-300">
+                            <div className="md:w-[240px] shrink-0">
+                                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-none mb-3" style={{ fontFamily: 'var(--font-serif), serif', fontStyle: 'italic', fontWeight: 400 }}>Voltquant</h3>
+                                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] " style={{ color: 'var(--redline)' }}>11/2023 – 12/2024</p>
+                            </div>
+                            <div className="flex-1 mt-1 md:mt-0">
+                                <p className="text-[1.3rem] font-medium mb-2 text-foreground">Product Designer</p>
+                                <p className="text-muted-foreground text-[1.1rem] leading-[1.65]">
                                     Worked on Website, Mobile app with Design Systems
                                 </p>
                             </div>
                         </div>
 
                         {/* Lifesmile */}
-                        <div className="grid md:grid-cols-[200px_1fr] gap-8 pb-12 border-b border-border">
-                            <h3 className="text-2xl font-semibold">Lifesmile</h3>
-                            <div>
-                                <p className="font-medium mb-1">Product Designer</p>
-                                <p className="text-sm text-muted-foreground mb-4">09/2019 – 11/2023</p>
-                                <p className="text-muted-foreground">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 py-8 px-5 sm:px-6 border-b border-border hover:bg-white/[0.025] hover:pl-8 transition-all duration-300">
+                            <div className="md:w-[240px] shrink-0">
+                                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-none mb-3" style={{ fontFamily: 'var(--font-serif), serif', fontStyle: 'italic', fontWeight: 400 }}>Lifesmile</h3>
+                                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] " style={{ color: 'var(--redline)' }}>09/2019 – 11/2023</p>
+                            </div>
+                            <div className="flex-1 mt-1 md:mt-0">
+                                <p className="text-[1.3rem] font-medium mb-2 text-foreground">Product Designer</p>
+                                <p className="text-muted-foreground text-[1.1rem] leading-[1.65]">
                                     Worked on Website, Mobile App, Dashboard and Design Systems
                                 </p>
                             </div>
                         </div>
 
                         {/* Datalink */}
-                        <div className="grid md:grid-cols-[200px_1fr] gap-8 pb-12 border-b border-border">
-                            <h3 className="text-2xl font-semibold">Datalink</h3>
-                            <div>
-                                <p className="font-medium mb-1">UX and UI Designer</p>
-                                <p className="text-sm text-muted-foreground mb-4">01/2018 – 06/2019</p>
-                                <p className="text-muted-foreground">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 py-8 px-5 sm:px-6 border-b border-border hover:bg-white/[0.025] hover:pl-8 transition-all duration-300">
+                            <div className="md:w-[240px] shrink-0">
+                                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-none mb-3" style={{ fontFamily: 'var(--font-serif), serif', fontStyle: 'italic', fontWeight: 400 }}>Datalink</h3>
+                                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] " style={{ color: 'var(--redline)' }}>01/2018 – 06/2019</p>
+                            </div>
+                            <div className="flex-1 mt-1 md:mt-0">
+                                <p className="text-[1.3rem] font-medium mb-2 text-foreground">UX and UI Designer</p>
+                                <p className="text-muted-foreground text-[1.1rem] leading-[1.65]">
                                     Worked on a range of projects in the tech, finance industry.
                                 </p>
                             </div>
                         </div>
 
                         {/* Shiftenterprises */}
-                        <div className="grid md:grid-cols-[200px_1fr] gap-8 pb-12 border-b border-border">
-                            <h3 className="text-2xl font-semibold">Shiftenterprises</h3>
-                            <div>
-                                <p className="font-medium mb-1">UX and UI Designer</p>
-                                <p className="text-sm text-muted-foreground mb-4">10/2016 – 12/2017</p>
-                                <p className="text-muted-foreground">
+                        <div className="flex flex-col md:flex-row gap-6 md:gap-12 pt-8 pb-4 px-5 sm:px-6 hover:bg-white/[0.025] hover:pl-8 transition-all duration-300">
+                            <div className="md:w-[240px] shrink-0">
+                                <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] leading-none mb-3" style={{ fontFamily: 'var(--font-serif), serif', fontStyle: 'italic', fontWeight: 400 }}>Shiftenterprises</h3>
+                                <p className="font-mono text-[0.7rem] uppercase tracking-[0.1em] " style={{ color: 'var(--redline)' }}>10/2016 – 12/2017</p>
+                            </div>
+                            <div className="flex-1 mt-1 md:mt-0">
+                                <p className="text-[1.3rem] font-medium mb-2 text-foreground">UX and UI Designer</p>
+                                <p className="text-muted-foreground text-[1.1rem] leading-[1.65]">
                                     Worked on a range of projects in the health, gardening industry.
                                 </p>
                             </div>
                         </div>
                     </div>
+                    </div>
                 </section>
             </main>
 
             {/* Footer */}
-            <footer className="border-t border-border py-12">
-                <div className="max-w-[1280px] mx-auto px-8">
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div>
-                            <p className="text-sm text-muted-foreground mb-2">Ali</p>
-                            <a href="mailto:hello@alihamza.com" className="text-sm hover:text-primary transition-colors">
-                                hello@alihamza.com
-                            </a>
-                        </div>
-
-                        <div>
-                            <p className="text-sm text-muted-foreground mb-2">Links</p>
-                            <div className="flex gap-4 text-sm">
-                                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                                <Link href="/about" className="hover:text-primary transition-colors">About</Link>
-                            </div>
-                        </div>
-
-                        <div className="md:text-right">
-                            <p className="text-sm text-muted-foreground mb-2">Socials</p>
-                            <div className="flex md:justify-end gap-4 text-sm">
-                                <a href="https://linkedin.com" className="hover:text-primary transition-colors">LinkedIn</a>
-                                <a href="https://twitter.com" className="hover:text-primary transition-colors">Twitter</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

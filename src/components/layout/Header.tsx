@@ -1,68 +1,43 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Logo, LogoStatic } from '@/components/ui/Logo';
-import { DarkModeToggle, ThemeSwitcher } from '@/components/theme';
+import { Logo } from '@/components/ui/Logo';
 
 export function Header() {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // Prevent hydration mismatch
-    if (!mounted) {
-        return (
-            <header className="fixed top-4 left-0 right-0 z-50 px-4">
-                <nav className="max-w-4xl mx-auto px-8 bg-background/95 border border-border rounded-2xl flex items-center justify-between py-6">
-                    <LogoStatic size={32} className="text-foreground" />
-                    <div className="hidden md:flex items-center gap-0">
-                        <span className="px-4 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider">Work</span>
-                        <span className="px-4 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider">About</span>
-                        <span className="px-4 py-2 text-sm font-medium text-muted-foreground uppercase tracking-wider">Contact</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <div className="w-9 h-9" />
-                        <div className="w-9 h-9" />
-                        <div className="h-9 w-28" />
-                    </div>
-                </nav>
-            </header>
-        );
-    }
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
         <header className="fixed top-4 left-0 right-0 z-50 px-4">
-            <nav className="max-w-4xl mx-auto px-8 bg-background/95 border border-border rounded-2xl flex items-center justify-between py-6">
+            <nav className="max-w-4xl mx-auto px-8 bg-background/60 backdrop-blur-md border border-border/50 rounded-2xl flex items-center justify-between py-6">
                 {/* Left: Logo */}
-                <Link href="/" className="flex items-center gap-2">
-                    <Logo size={32} className="text-foreground" />
-                </Link>
+                <div className="flex items-center gap-2">
+                    <Link href="/" className="flex items-center gap-2">
+                        <Logo size={32} className="text-foreground" />
+                    </Link>
+                </div>
 
                 {/* Center: Nav Links */}
                 <div className="hidden md:flex items-center gap-0">
-                    <Link href="/#work" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
+                    <Link href="/work" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
                         Work
                     </Link>
                     <Link href="/about" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
                         About
                     </Link>
-                    <Link href="/#contact" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
+                    <Link href="/contact" className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider">
                         Contact
                     </Link>
                 </div>
 
                 {/* Right: Icons + CTA */}
                 <div className="flex items-center gap-3">
-                    <DarkModeToggle />
 
                     {/* LinkedIn Icon */}
                     <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/alihamxa-epic"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-9 h-9 flex items-center justify-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
@@ -75,21 +50,39 @@ export function Header() {
                     {/* Contact CTA Button */}
                     <Button
                         size="sm"
-                        className="rounded-full px-5 gap-2"
+                        className="rounded-full px-6 bg-foreground text-background hover:bg-foreground/90 font-medium"
                         asChild
                     >
-                        <Link href="/#contact">
+                        <a href="mailto:hello@alihamxa.com">
                             Contact me
-                            <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
+                        </a>
                     </Button>
 
-                    {/* Mobile Menu */}
-                    <div className="md:hidden">
-                        <ThemeSwitcher />
-                    </div>
+                    {/* Mobile Menu Toggle */}
+                    <button 
+                        className="md:hidden text-foreground flex items-center justify-center ml-1"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
             </nav>
+
+            {/* Mobile Menu Dropdown */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-full left-4 right-4 mt-2 p-6 bg-background/95 backdrop-blur-md border border-border/50 rounded-2xl flex flex-col gap-4 shadow-lg animate-in fade-in slide-in-from-top-2">
+                    <Link href="/work" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-muted-foreground hover:text-foreground uppercase tracking-wider">
+                        Work
+                    </Link>
+                    <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-muted-foreground hover:text-foreground uppercase tracking-wider">
+                        About
+                    </Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-muted-foreground hover:text-foreground uppercase tracking-wider">
+                        Contact
+                    </Link>
+                </div>
+            )}
         </header>
     );
 }

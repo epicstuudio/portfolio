@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+
 
 interface LogoProps {
     size?: number;
@@ -9,12 +9,6 @@ interface LogoProps {
 
 // Safe Logo that works both during SSR and client-side
 export function Logo({ size = 32, className = '' }: LogoProps) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
     // Always use static colors that work in all themes
     const bgColor = 'currentColor';
     const fgColor = 'var(--background)';
@@ -27,7 +21,6 @@ export function Logo({ size = 32, className = '' }: LogoProps) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={className}
-            style={{ opacity: mounted ? 1 : 0.99 }} // Tiny change to trigger re-render after mount
         >
             <g clipPath="url(#clip0_logo)">
                 <path

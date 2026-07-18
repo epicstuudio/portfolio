@@ -1,0 +1,31 @@
+/* ---------- Footer / CTA ---------- */
+.site-footer {
+  border-top:1px solid var(--border); padding:120px 0 36px; position:relative; overflow:hidden;
+  background:
+    radial-gradient(800px 480px at 50% 130%, rgba(232,112,42,.18), transparent 65%),
+    var(--background);
+}
+
+.btn-accent-cta {
+  background:var(--foreground); color:var(--background); 
+  font-size:.9rem; font-weight:500; padding:13px 28px; border-radius:999px; transition:.25s;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn-accent-cta:hover { background:var(--muted-foreground); transform:scale(1.03); }
+
+.btn-ghost-cta {
+  background:transparent; color:var(--foreground); border:1px solid rgba(255,255,255,.2);
+  font-size:.9rem; font-weight:500; padding:13px 28px; border-radius:999px; transition:.25s;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn-ghost-cta:hover { border-color:var(--foreground); transform:scale(1.03); }
+
+.foot-bar {
+  margin-top:60px; padding-top:26px; border-top:1px solid var(--border);
+  display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between;
+  font-size:.72rem; letter-spacing:.08em; color:var(--muted-foreground); position:relative;
+  z-index: 10;
+}
+.foot-bar .links { display:flex; gap:22px; }
+.foot-bar a:hover { color:var(--foreground); }
+.foot-bar .mono { font-size:.66rem; font-family: var(--font-mono); }

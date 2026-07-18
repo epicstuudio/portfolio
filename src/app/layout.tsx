@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import "../styles/themes/summer.css";
-import "../styles/themes/winter.css";
-import "../styles/themes/autumn.css";
-import "../styles/themes/spring.css";
-import "../styles/themes/cosmos.css";
 import { Providers } from "./providers";
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  variable: "--font-serif",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -21,13 +24,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Product Designer",
-  description: "Product Designer with 8+ years of experience creating impactful digital experiences.",
+  title: "Ali Hamza | Senior Product Designer",
+  description: "Senior Product Designer with 9+ years of experience turning ambiguity into shipped, loved products.",
   keywords: ["product design", "UX design", "UI design", "portfolio", "case studies"],
-  authors: [{ name: "Product Designer" }],
+  authors: [{ name: "Ali Hamza" }],
   openGraph: {
-    title: "Portfolio | Product Designer",
-    description: "Product Designer with 8+ years of experience creating impactful digital experiences.",
+    title: "Ali Hamza | Senior Product Designer",
+    description: "Senior Product Designer with 9+ years of experience turning ambiguity into shipped, loved products.",
     type: "website",
   },
 };
@@ -38,9 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="summer" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        suppressHydrationWarning
+        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         <Providers>
           {children}

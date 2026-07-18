@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Lock, ArrowRight, AlertCircle } from 'lucide-react';
@@ -86,16 +87,6 @@ function PasswordForm() {
 }
 
 export default function PasswordPage() {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return null;
-    }
-
     return (
         <div className="min-h-screen flex items-center justify-center bg-background px-4">
             <motion.div
@@ -125,12 +116,12 @@ export default function PasswordPage() {
                 </div>
 
                 {/* Back link */}
-                <a
+                <Link
                     href="/"
                     className="inline-block mt-8 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                     ← Back to home
-                </a>
+                </Link>
             </motion.div>
         </div>
     );
