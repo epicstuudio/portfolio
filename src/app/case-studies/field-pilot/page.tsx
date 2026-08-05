@@ -10,7 +10,7 @@ export default function FieldPilotCaseStudy() {
         <div className="min-h-screen bg-background text-foreground">
             <Header />
 
-            <main className="pt-[200px]">
+            <main className="pt-[200px] max-w-[1280px] mx-auto">
                 {/* Hero */}
                 <section className="page-container pb-16 border-b border-border">
                     <motion.div
